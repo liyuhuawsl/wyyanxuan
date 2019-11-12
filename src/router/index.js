@@ -44,7 +44,12 @@ const router = new VueRouter({
         redirect: '/classify/list'
       }, {
         path: 'list',
+        name: 'classIfyList1',
         component: ClassIfyList,
+      }, {
+        path: 'list/:listId',
+        name: 'classIfyList2',
+        component: ClassIfyList
       }
     ]
   }, {
@@ -93,7 +98,7 @@ const router = new VueRouter({
   }, {
     path: '/search',
     component: Search
-  },{
+  }, {
     path: '/itemdetails',
     component: Itemdetails
   },

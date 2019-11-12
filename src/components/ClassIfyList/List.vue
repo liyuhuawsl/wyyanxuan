@@ -6,7 +6,7 @@
 </template>
 <script>
 import Head from "./Header";
-import HandleList from "./HandleList";
+import HandleList from "./HandleLList";
 
 
 export default {
