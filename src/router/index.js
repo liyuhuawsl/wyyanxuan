@@ -12,9 +12,8 @@ import ShoppingCartList from '../components/ShoppingCartList/List.vue';
 import PersonalList from '../components/PersonalList/List.vue';
 import Content from '../components/IdentifyingList/content1.vue';
 
-
+import Personallogin from '../components/PersonalList/personallogin.vue';
 import Itemdetails from '../components/itemdetails.vue';
-
 
 
 import Search from '../components/search.vue';
@@ -96,6 +95,10 @@ const router = new VueRouter({
       }, {
         path: 'list',
         component: PersonalList
+      }, {
+        path: 'handle/log',
+        name: 'handle',
+        component: Personallogin
       }
     ]
   }, {

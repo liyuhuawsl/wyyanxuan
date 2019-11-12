@@ -6,7 +6,7 @@
             <span>
                 购物车
             </span>
-            <a href="">领券</a>
+            <a href="javascript:;">领券</a>
         </header>
 
         <!-- 30天无忧退货 -->
@@ -30,12 +30,10 @@
         <div class="img"></div>
         <div class="txt">去添加点什么吧 </div>
         <router-link to="/personal" class="button">登录</router-link>
-
     </main>
 </template>
 <script>
 export default {
-    
 }
 </script>
 <style lang="less" scoped>

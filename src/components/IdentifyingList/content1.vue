@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="main_content">
       <a href="javascript:;">
         <div class="m-name">
@@ -17,12 +16,11 @@
           />
         </div>
         <div class="m-rcount">
-          <i class="ioc"></i>
+          <i class="iocn"></i>
           <span>43.5k人看过</span>
         </div>
       </a>
     </div>
-  </div>
 </template>
 <script>
 export default {};

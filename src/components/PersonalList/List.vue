@@ -10,18 +10,18 @@
     <img src="//yanxuan.nosdn.127.net/39c5e4583753d4c3cb868a64c2c109ea.png" alt />
     </div>
     <div class="ipt">
+    <p class="nonempty" v-show="isShow">账号或密码不能为空~</p>
     <p>
         <input type="text" placeholder="请输入手机号" v-model="phone" />
-        <i class="iconfont icon-x"></i>
+        <i class="iconfont icon-x" @click="empty(phone)"></i>
     </p>
     <p>
-        <input type="text" placeholder="请输入密码" v-model="password" />
-        <i class="iconfont icon-x"></i>
+        <input type="password" placeholder="请输入密码" v-model="password" />
+        <i class="iconfont icon-x" @click="empty(password)"></i>
     </p>
     </div>
     <div class="Aboutpassword">
-    <span>忘记密码？</span>
-    <span>短信快捷登录</span>
+    <a href="https://aq.reg.163.com/ydaq/welcome?module=offlinePasswordFind" target="_blank">忘记密码?</a>
     </div>
     <div class="submit" @click="handleLogin(phone, password)">登录</div>
 </div>
@@ -32,22 +32,36 @@ export default {
 data() {
     return {
     phone: "",
-    password: ""
+    password: "",
+    isShow: false
     };
 },
 methods: {
     handleLogin(phone, password) {
-        
-        
+        if(this.check()) {
+            this.isShow = true;
+            return;
+        }
+        this.isShow = false;
         login(phone, password).then(result => {
-            
-            
             if (parseInt(result.code) === 0) {
-                this.$router.push('/search');
+                this.$message({
+                type: 'success',
+                message: '已成功登录~'
+                });
+                this.$router.push({name: 'handle', params: {log: 'xixi'}});
                 return;
             }
             return Promise.reject();
         })
+    },
+    // 表单校验
+    check() {
+        let flag = this.phone === '' || this.password === '';
+        return flag;
+    },
+    empty(type) {
+        this.phone == type ? this.phone = '' : this.password = '';
     }
 }
 };
@@ -59,7 +73,7 @@ width: 100%;
 background: #fafafa;
 line-height: 1rem;
 .icon-shouye {
-    margin: 0 2rem 0 0.3rem;
+    margin: 0 2.4rem 0 0.3rem;
 }
 .icon-magnifier {
     margin-right: 0.3rem;
@@ -69,9 +83,10 @@ line-height: 1rem;
     color: #333;
 }
 img {
+    text-align: center;
     width: 1.5rem;
     height: 0.5rem;
-    margin-right: 1.2rem;
+    margin-right: 1rem;
 }
 }
 .logo {
@@ -106,23 +121,16 @@ p {
 }
 .Aboutpassword {
 width: 90%;
-margin-left: 0.4rem;
-margin-top: 0.3rem;
-span:nth-of-type(1) {
+margin-left: 0.75rem;
+margin-top: 0.1rem;
+a {
     color: #7f7f7f;
-    float: left;
-}
-span:nth-of-type(2) {
-    color: #333;
-    float: right;
-}
-span {
     font-size: 0.3rem;
 }
 }
 .submit {
 width: 90%;
-margin: 1rem auto;
+margin: .3rem auto;
 height: 1rem;
 background: #dd1a21;
 color: #fff;
@@ -130,5 +138,10 @@ line-height: 1rem;
 text-align: center;
 font-size: 0.3rem;
 border-radius: 0.1rem;
+}
+.nonempty {
+    margin:0 0 .3rem .7rem;
+    font-size: .3rem;
+    color: #dd1a21;
 }
 </style>

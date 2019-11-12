@@ -1,10 +1,10 @@
         <template>
   <div class="container">
-    <swiper>
+    <swiper :options='swiperOption'>
       <swiper-slide v-for="(item) in bannerData" :key="item.id" class="swiper-container">
         <img :src="item.src" alt />
       </swiper-slide>
-      <div class="swiper-pagination"></div>
+      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
     <ul>
       <li>
@@ -22,7 +22,8 @@
     </ul>
   </div>
 </template>
-        <script>
+<script>
+import {swiper, swiperSlide} from 'vue-awesome-swiper';
 let bannerData = [
   {
     id: 1,
@@ -65,16 +66,30 @@ let bannerData = [
       "https://yanxuan.nosdn.127.net/28664331571785592305895daed76aa8.jpg?imageView&quality=75&thumbnail=750x0"
   }
 ];
-
 export default {
   data() {
     return {
-      bannerData
+      bannerData,
+      swiperOption: {
+        autoplay: {
+        delay: 1000,
+        disableOnInteraction: true
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable :true
+          },
+        loop: true,
+      }
     };
   },
   methods: {
     
-  }
+  },
+  components: {
+      swiper,
+      swiperSlide
+    }
 };
 </script>
         <style lang="less" scoped>

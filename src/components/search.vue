@@ -1,9 +1,7 @@
 <template>
   <div class="container">
     <div class="search">
-      <button class="iconfont icon-magnifier">
-        <span>预售乳胶床垫&nbsp;低至275折</span>
-      </button>
+      <input type="text" class="iconfont icon-magnifier" placeholder="预售乳胶床垫,低至275折"/>
       <router-link to="/home" class="cancel">取消</router-link>
     </div>
     <p>热门搜索</p>
@@ -36,17 +34,16 @@ body {
   background: #eee;
 }
 .search {
-  button {
+  input {
     width: 80%;
     height: 0.5rem;
     background: #f4f4f4;
     border: none;
     margin: 0.15rem 0 0 0.2rem;
     border-radius: 0.1rem;
-    span {
-      padding-left: 0.1rem;
+    padding-left: 0.1rem;
+    text-indent: .3rem;
       color: rgba(0, 0, 0, 0.8);
-    }
   }
   & > .cancel {
     display: inline-block;

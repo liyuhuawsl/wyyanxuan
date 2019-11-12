@@ -1,9 +1,9 @@
 <template>
   <div class="header">
-    <button>
+    <router-link to="/search" class="button">
       <i class="iconfont icon-magnifier"></i>
       <span>&nbsp;搜索商品, 共24039款好物</span>
-    </button>
+    </router-link>
   </div>
 </template>
 <script>
@@ -18,11 +18,13 @@ export default {};
   height: 1rem;
   border-bottom: 0.01rem solid #ccc;
   background: #fff;
-  button {
+  .button {
+    text-align: center;
+    display: block;
     width: 90%;
-    height: 0.5rem;
-    line-height: 0.5rem;
-    margin: 0.3rem 0.3rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    margin: 0.2rem 0.3rem;
     border: none;
     font-size: 0.3rem;
     color: #666;
