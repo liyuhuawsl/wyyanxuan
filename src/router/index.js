@@ -10,8 +10,6 @@ import ClassIfyList from '../components/ClassIfyList/List.vue';
 import IdentifyingList from '../components/IdentifyingList/List.vue';
 import ShoppingCartList from '../components/ShoppingCartList/List.vue';
 import PersonalList from '../components/PersonalList/List.vue';
-import Content from '../components/IdentifyingList/content1.vue';
-
 import Personallogin from '../components/PersonalList/personallogin.vue';
 import Itemdetails from '../components/itemdetails.vue';
 
@@ -59,16 +57,7 @@ const router = new VueRouter({
         redirect: 'list'
       }, {
         path: 'list',
-        component: IdentifyingList,
-        children: [
-          {
-            path: '',
-            redirect: 'content'
-          }, {
-            path: 'content',
-            component: Content
-          }
-        ]
+        component: IdentifyingList
       }
     ]
   }, {
@@ -96,7 +85,7 @@ const router = new VueRouter({
         path: 'list',
         component: PersonalList
       }, {
-        path: 'handle/log',
+        path: 'handle/:log',
         name: 'handle',
         component: Personallogin
       }

@@ -48,6 +48,13 @@
       "unicode_decimal": 59192
     },
     {
+      "icon_id": "1010087",
+      "name": "对号",
+      "font_class": "duihao",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
       "icon_id": "1137795",
       "name": "交易",
       "font_class": "jiaoyi",

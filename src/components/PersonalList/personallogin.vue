@@ -27,7 +27,7 @@
     </li>
     </ul>
     <button class="signout" @click="centerDialogVisible=true">退出登录</button>
-    <el-dialog title="退出登录?" :visible.sync="centerDialogVisible" width="85%" center :show-close="false"
+    <el-dialog title="退出登录" :visible.sync="centerDialogVisible" width="85%" center :show-close="false"
     top='4.5rem'>
     <span slot="footer" class="dialog-footer" >
         <el-button @click="cancel">取 消</el-button>
